@@ -60,9 +60,13 @@
       <button class="menu-toggle"><span></span></button>
     </div>
     <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-      <button class="menu-close" aria-label="Close menu">×</button>
+      <button class="modal-btn menu-close" type="button" aria-label="Modal close button">
+        <svg class="modal-btn-icon" width="8" height="8">
+          <use href="./images/icons.svg#icon-close-black-18dp-2-1"></use>
+        </svg>
+      </button>
       <ul class="mobile-menu__nav">
-        <li><a href="./index.html">Studio</a></li>
+        <li class="active"><a href="./index.html">Studio</a></li>
         <li><a href="">Portfolio</a></li>
         <li><a href="">Contacts</a></li>
       </ul>
@@ -518,9 +522,9 @@
       </div>
     </div>
   </footer>
-  <div class="backdrop">
+  <div id="backdrop" class="backdrop">
     <div class="modal">
-      <button class="modal-btn" type="button" aria-label="Modal close button">
+      <button class="modal-btn modal-close" type="button" aria-label="Modal close button">
         <svg class="modal-btn-icon" width="8" height="8">
           <use href="./images/icons.svg#icon-close-black-18dp-2-1"></use>
         </svg>
@@ -591,8 +595,16 @@
       document.getElementById('mobile-menu').classList.add('is-open');
     });
 
-    document.querySelector('.menu-close')?.addEventListener('click', function () {
+    document.querySelector('.menu-close').addEventListener('click', function () {
       document.getElementById('mobile-menu').classList.remove('is-open');
+    });
+
+    document.querySelector('.hero-button').addEventListener('click', function () {
+      document.getElementById('backdrop').classList.add('is-open');
+    });
+
+    document.querySelector('.modal-close').addEventListener('click', function () {
+      document.getElementById('backdrop').classList.remove('is-open');
     });
   </script>
 
